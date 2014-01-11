@@ -7,7 +7,16 @@
  */
 package com.hinodesoftworks.oshieru;
 
-public class CharacterMenuActivity
+import android.app.Activity;
+import android.os.Bundle;
+
+public class CharacterMenuActivity extends Activity
 {
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_character_menu);
+	}
 
 }
