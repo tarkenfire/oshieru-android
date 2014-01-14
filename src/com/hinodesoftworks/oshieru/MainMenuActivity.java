@@ -23,7 +23,6 @@ public class MainMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		
 	}
 	
 	public void onClick(View v)
@@ -31,14 +30,16 @@ public class MainMenuActivity extends Activity
 		switch(v.getId())
 		{
 			case R.id.button_characters:
-				Intent i = new Intent(this, CharacterMenuActivity.class);
-				startActivity(i);
-				
+				Intent ci = new Intent(this, CharacterMenuActivity.class);
+				startActivity(ci);
 				return;
 			case R.id.button_grammar:
+				Intent gi = new Intent(this, GrammarMenuActivity.class);
+				startActivity(gi);
 				return;
-				
 			case R.id.button_vocabulary:
+				Intent vi = new Intent(this, VocabMasterListActivity.class);
+				startActivity(vi);
 				return;
 		}
 	}

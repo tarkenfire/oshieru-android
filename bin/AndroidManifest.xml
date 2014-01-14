@@ -24,10 +24,24 @@
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.CharacterMenuActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
-            
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">          
         </activity>
         
+        <activity android:name="com.hinodesoftworks.oshieru.GrammarMenuActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
+        </activity>
+        
+        <activity android:name="com.hinodesoftworks.oshieru.VocabMasterListActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
+        </activity>
+        
+        <activity android:name="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity">
+        </activity>
+        
+        <activity android:name="com.hinodesoftworks.oshieru.CharacterListActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity">
+        </activity>
         
     </application>
 
