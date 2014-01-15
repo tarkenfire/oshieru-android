@@ -7,7 +7,15 @@
  */
 package com.hinodesoftworks.oshieru;
 
-public class VocabMasterListActivity
-{
+import android.app.Activity;
+import android.os.Bundle;
 
+public class VocabMasterListActivity extends Activity
+{
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_vocab_list);
+	}
 }
