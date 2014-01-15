@@ -32,20 +32,35 @@
         </activity>
 		
         <activity android:name="com.hinodesoftworks.oshieru.CharacterDetailActivity"
-            android:parentActivityName="com.hinodesoftworks.CharacterListActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterListActivity">
         </activity>
         
 		<activity android:name="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity"
             android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity">
         </activity>
         
+		<activity android:name="com.hinodesoftworks.oshieru.CharacterQuizActivity"
+		    android:parentActivityName="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity">
+		</activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.GrammarMenuActivity"
             android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
         </activity>
         
+        <activity android:name="com.hinodesoftworks.oshieru.ConjugationSifterActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity">
+        </activity>
+        
+        <activity android:name="com.hinodesoftworks.oshieru.ParticleQuizActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity">
+        </activity>
+        
         <activity android:name="com.hinodesoftworks.oshieru.VocabMasterListActivity"
             android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
+        </activity>
+        
+        <activity android:name="com.hinodesoftworks.oshieru.VocabDetailListActivity"
+            android:parentActivityName="com.hinodesoftworks.oshieru.VocabMasterListActivity">
         </activity>
         
     </application>

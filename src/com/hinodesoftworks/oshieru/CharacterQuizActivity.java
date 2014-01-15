@@ -7,7 +7,16 @@
  */
 package com.hinodesoftworks.oshieru;
 
-public class CharacterQuizActivity
+import android.app.Activity;
+import android.os.Bundle;
+
+public class CharacterQuizActivity extends Activity
 {
+	@Override
+	protected void onCreate(Bundle savedInstanceState)
+	{
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_character_quiz);
+	}
 
 }

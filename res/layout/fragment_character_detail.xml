@@ -21,7 +21,7 @@
 		    android:layout_weight="30"
 		    android:text="教"
 		    android:gravity="center"
-		    android:textSize="30sp"
+		    android:textSize="100sp"
 		    />
         
         <LinearLayout
@@ -55,6 +55,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight="70"
+        android:orientation="vertical"
         >
 			<TextView 
                 android:layout_height="wrap_content"

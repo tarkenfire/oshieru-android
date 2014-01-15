@@ -6,15 +6,8 @@
     
     <TextView 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Super Temporary Start Quiz Button"
-        />
-    
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Start Quiz" 
-        android:onClick="onClick"
+    	android:layout_height="match_parent"
+    	android:text="Not Implemented"
         />
 
 </LinearLayout>
