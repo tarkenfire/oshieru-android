@@ -29,6 +29,15 @@ public class DatabaseManager
 	{
 		return null;
 	}
+	
+	public Cursor queryLimitedTableData(String table, int limit, 
+			String excludeField, String exclude)
+	{
+		return database.query(table, null, excludeField +" != \'" + exclude + "\'", 
+				null, null, null, "RANDOM()", String.valueOf(limit));
+		
+		
+	}
 
 	
 	
