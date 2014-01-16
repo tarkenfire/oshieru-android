@@ -99,6 +99,12 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			throw new NullPointerException();
 	}
 	
+	public synchronized void closeDatabase()
+	{
+		if (database.isOpen())
+			database.close();
+	}
+	
 	
 
 	//database is static, creation and upgrade is unneeded.

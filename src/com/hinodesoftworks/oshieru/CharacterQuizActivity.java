@@ -31,6 +31,7 @@ import android.widget.TextView;
 public class CharacterQuizActivity extends Activity implements QuizQuestionListener, OnClickListener
 {
 	QuizManager quizManager;
+	DatabaseHelper databaseHelper;
 	
 	//UI Handles
 	TextView scoreView;
@@ -47,7 +48,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_quiz);
 		
-		DatabaseHelper databaseHelper = new DatabaseHelper(this);
+		databaseHelper = new DatabaseHelper(this);
 		databaseHelper.openDatabase();
 		SQLiteDatabase database = databaseHelper.getDatabase();
 		DatabaseManager databaseManager = new DatabaseManager(database);
@@ -154,6 +155,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 					@Override
 					public void onClick(DialogInterface dialog, int which)
 					{
+						CharacterQuizActivity.this.databaseHelper.closeDatabase();
 						CharacterQuizActivity.this.finish();
 					}
 				}

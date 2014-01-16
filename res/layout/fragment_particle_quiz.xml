@@ -4,10 +4,46 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <TextView 
+    <TextView
+        android:id="@+id/part_quiz_score" 
         android:layout_width="match_parent"
-    	android:layout_height="match_parent"
-    	android:text="Not Implemented"
+    	android:layout_height="wrap_content"
+    	android:text="Score: 0 Correct - 0 Incorrect"
+        />
+    
+    <TextView
+        android:id="@+id/part_quiz_question"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:textSize="50sp"
+        android:text="X"
+        />
+    
+    <Button
+        android:id="@+id/part_quiz_button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Answer 1"
+        />
+
+	<Button
+        android:id="@+id/part_quiz_button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Answer 2"
+        />
+	<Button
+        android:id="@+id/part_quiz_button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Answer 3"
+        />
+	
+	<Button
+        android:id="@+id/part_quiz_button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Answer 4"
         />
 
 </LinearLayout>
