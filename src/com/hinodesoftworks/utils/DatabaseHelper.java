@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
@@ -25,8 +26,11 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	public static final String DATABASE_NAME = "oishDB";
 	public static final int DATABASE_VERSION = 1;
 	
+	@SuppressLint("SdCardPath")
+	public static final String DATABASE_PATH = "/data/data/com.hinodesoftworks.oshieru/databases/";
+	
 	private Context ctx;
-	private SQLiteDatabase database;
+	private SQLiteDatabase database = null;
 	
 	private String internalDir;
 
@@ -34,17 +38,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	{
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
 		this.ctx = context;
-		this.internalDir = getInternalDir();
-		//createDatabase();
-		
+		createDatabase();		
 	}
-	
-	private String getInternalDir()
-	{
-		return ctx.getFilesDir().getAbsolutePath();
-		
-	}
-	
+
 	private void createDatabase()
 	{
 		if (databaseExists())
@@ -57,8 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			{
 				this.getReadableDatabase();
 				
-				InputStream is = ctx.getAssets().open(DATABASE_NAME);
-				String fullPath = internalDir + "/" + DATABASE_NAME;
+				InputStream is = ctx.getAssets().open(DATABASE_NAME + ".sqlite");
+				String fullPath =  DATABASE_PATH + DATABASE_NAME;
 				OutputStream os = new FileOutputStream(fullPath);
 				
 				 byte[] buffer = new byte[1024];
@@ -91,16 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	public void openDatabase() 
 	{
-		String path = internalDir + "/" + DATABASE_NAME;
-		//database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
-		Log.i("dbpath", path);
-		
-		AssetManager am = ctx.getAssets();
-		
-		
-	
-
-		
+		String path = DATABASE_PATH + DATABASE_NAME;
+		database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 	}
 	
 	public SQLiteDatabase getDatabase()

@@ -8,11 +8,14 @@
 package com.hinodesoftworks.oshieru;
 
 import com.hinodesoftworks.utils.DatabaseHelper;
+import com.hinodesoftworks.utils.DatabaseManager;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
@@ -25,10 +28,6 @@ public class MainMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		
-		DatabaseHelper dbh = new DatabaseHelper(this);
-		dbh.openDatabase();
-		
 	}
 	
 	public void onClick(View v)
