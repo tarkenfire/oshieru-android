@@ -7,8 +7,14 @@
  */
 package com.hinodesoftworks.oshieru;
 
+import com.hinodesoftworks.utils.DatabaseHelper;
+import com.hinodesoftworks.utils.DatabaseManager;
+
 import android.app.Activity;
+import android.app.ListFragment;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,28 +22,27 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class CharacterListActivity extends Activity implements OnItemClickListener
-{
+public class CharacterListActivity extends Activity
+{	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_list);
 		
-		//TODO Static placeholder layout/code.
-		//TODO FRAGMENT THIS. FRAGMENT THIS. FRAGMENT THIS.
-		ListView testListView = (ListView)findViewById(R.id.placeholder_listview);
-		String[] placeholderArray = {"Example Character", "Example Character", "Example Character", "Example Character", "Example Character", "Example Character"};
-		ArrayAdapter<String> testAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, placeholderArray);
-		testListView.setAdapter(testAdapter);
-		testListView.setOnItemClickListener(this);
+		
+		ListFragment hiraFrag = (ListFragment) this.getFragmentManager().findFragmentById(R.id.fragment_hira_list);
+		DatabaseHelper helper = new DatabaseHelper(this);
+		helper.openDatabase();
+		SQLiteDatabase database = helper.getDatabase();
+		DatabaseManager manager = new DatabaseManager(database);
+		
+		Cursor hiraCursor = manager.querySingleTableData("hiragana");
+		KanaCursorAdapter adapter = new KanaCursorAdapter(this, hiraCursor, false);
+		
+		hiraFrag.setListAdapter(adapter);
+		
+		
 	}
-	
-	//TODO REMOVE. FRAGMENT.
-	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3)
-	{
-		Intent i = new Intent(this, CharacterDetailActivity.class);
-		startActivity(i);
-	}
+
 }

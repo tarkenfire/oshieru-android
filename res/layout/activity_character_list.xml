@@ -4,17 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 	
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TABS NOT IMPLEMENTED"
-        android:gravity="center"
-        />
-    
-    <ListView
-        android:id="@+id/placeholder_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-         />
+	<fragment 
+	    android:name="com.hinodesoftworks.oshieru.HiraganaListFragment"
+	    android:id="@+id/fragment_hira_list"
+	    android:layout_height="match_parent"
+	    android:layout_width="match_parent" />
 
 </LinearLayout>
