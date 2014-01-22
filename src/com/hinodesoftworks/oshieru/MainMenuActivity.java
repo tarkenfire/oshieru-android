@@ -28,7 +28,6 @@ public class MainMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		this.overridePendingTransition(R.anim.left_to_right_slide, R.anim.right_to_left_slide);
 	}
 	
 	public void onClick(View v)

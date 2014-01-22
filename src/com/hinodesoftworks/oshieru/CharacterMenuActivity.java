@@ -19,8 +19,6 @@ public class CharacterMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_menu);
-		
-		this.overridePendingTransition(R.anim.right_to_left_slide, R.anim.right_to_left_slide);
 	}
 	
 	public void onClick(View v)

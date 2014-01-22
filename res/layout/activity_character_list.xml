@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.view.ViewPager
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/char_pager"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-	
-	<fragment 
-	    android:name="com.hinodesoftworks.oshieru.HiraganaListFragment"
-	    android:id="@+id/fragment_hira_list"
-	    android:layout_height="match_parent"
-	    android:layout_width="match_parent" />
+    android:layout_height="match_parent" />
 
-</LinearLayout>
