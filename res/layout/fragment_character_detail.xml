@@ -12,71 +12,91 @@
 	    android:layout_height="0dp"
 	    android:orientation="horizontal"
 	    android:weightSum="100"
-	    android:layout_weight="30"
+	    android:layout_weight="40"
         >
         
-		<TextView 
-		    android:layout_width="0dp"
+		<TextView
+		    android:id="@+id/kanji_detail_char"
+			android:layout_width="0dp"
 		    android:layout_height="wrap_content"
-		    android:layout_weight="30"
-		    android:text="教"
+		    android:layout_weight="45"
 		    android:gravity="center"
-		    android:textSize="100sp"
+		    android:textSize="150sp"
+			android:padding="10dp"
+        	android:textColor="#FFFFFF"
+			android:background="#ffcfd7"
 		    />
         
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="70"
-            android:orientation="vertical">
-            
-            <TextView 
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
-                />
-            
-			<TextView 
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
-                />
-			
-			<TextView 
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
-                />
-            
-        </LinearLayout>
+
+		<ScrollView
+		    android:layout_width="0dp"
+		    android:layout_height="wrap_content"
+			android:layout_weight="55">
+	         <TextView 
+	             android:id="@+id/kanji_detail_defs"
+	             android:layout_height="wrap_content"
+	             android:layout_width="wrap_content"
+	             android:textSize = "40sp"
+	             android:paddingLeft="10dp"
+	             />
+     	</ScrollView>
     </LinearLayout>
     
     <LinearLayout 
         android:layout_height="0dp"
         android:layout_width="match_parent"
-        android:layout_weight="70"
+        android:layout_weight="60"
         android:orientation="vertical"
         >
 			<TextView 
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
+                android:layout_width="match_parent"
+                android:text="@string/label_kanji_radical"
+                android:textColor="#FFFFFF"
+				android:background="#ffcfd7"
+				android:textSize="30sp"
+				android:paddingLeft="10dp"
+				android:layout_marginTop="1dp"
+                />
+			<TextView 
+			    android:id="@+id/kanji_detail_radical"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textSize="30sp"
+                android:paddingLeft="10dp"
                 />
 			<TextView 
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
-                />
-			<TextView 
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
+                android:layout_width="match_parent"
+                android:text="@string/label_kanji_kun"
+                android:textColor="#FFFFFF"
+				android:background="#ffcfd7"
+				android:textSize="30sp"
+				android:paddingLeft="10dp"
                 />			
-                
+			<TextView 
+			    android:id="@+id/kanji_detail_kun"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textSize="30sp"
+                android:paddingLeft="10dp"
+                />
+			
 			<TextView 
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="SOME THING"
+                android:layout_width="match_parent"
+                android:text="@string/label_kanji_on"
+                android:textColor="#FFFFFF"
+				android:background="#ffcfd7"
+				android:textSize="30sp"
+				android:paddingLeft="10dp"
+                />			
+			<TextView 
+			    android:id="@+id/kanji_detail_on"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:textSize="30sp"
+                android:paddingLeft="10dp"
                 />
         
     </LinearLayout>

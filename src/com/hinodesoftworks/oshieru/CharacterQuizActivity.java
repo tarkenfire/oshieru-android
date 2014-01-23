@@ -154,8 +154,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		adBuilder.setCancelable(false);
 		adBuilder.setPositiveButton("Ok", 
 				new DialogInterface.OnClickListener()
-				{
-					
+				{	
 					@Override
 					public void onClick(DialogInterface dialog, int which)
 					{
@@ -170,15 +169,10 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		
 	}
 
-
-
 	@Override
 	public void onClick(View v)
 	{
 		Button b = (Button)v;
 		quizManager.answerQuestion(b.getText().toString());	
 	}
-
-	
-	
 }

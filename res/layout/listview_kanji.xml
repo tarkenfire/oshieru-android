@@ -7,7 +7,7 @@
     >
     
     <TextView 
-        android:id="@+id/kana_list_char"
+        android:id="@+id/kanji_list_char"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
         android:layout_weight="20"
@@ -17,13 +17,25 @@
         android:background="#ffcfd7"
         />
     
-    <TextView
-        android:id="@+id/kana_list_roma"
+    <TextView 
+        android:id="@+id/kanji_list_radical"
         android:layout_height="wrap_content"
         android:layout_width="0dp"
-        android:layout_weight="80"
+        android:layout_weight="10"
+        android:padding="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:background="#ffcfd7"
+        android:layout_marginLeft="1dp"
+        />
+    
+    <TextView
+        android:id="@+id/kanji_list_defs"
+        android:layout_height="match_parent"
+        android:layout_width="0dp"
+        android:layout_weight="70"
         android:gravity="center_vertical"
-		android:textSize="45sp"
+		android:textSize="20sp"
         android:layout_marginLeft="25dp"
 		/>
 

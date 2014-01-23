@@ -9,6 +9,7 @@ package com.hinodesoftworks.oshieru;
 
 import android.app.ListFragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +21,31 @@ public class HiraganaListFragment extends ListFragment
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
 	{
-		return inflater.inflate(R.layout.fragment_hira_list, null);
+		return inflater.inflate(R.layout.fragment_character_list, null);
 	}
+	
+	
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState)
+	{
+		super.onActivityCreated(savedInstanceState);
+		
+		CharacterListActivity activity = (CharacterListActivity) this.getActivity();
+		KanaCursorAdapter adapter = new KanaCursorAdapter(activity, 
+				activity.getCursor(CharacterListActivity.FLAG_HIRA) , false);
+		
+		this.setListAdapter(adapter);
+		
+		
+	}
+
+
 
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id)
 	{
-		// TODO Auto-generated method stub
+		// does nothing
 		super.onListItemClick(l, v, position, id);
 	}
 	

@@ -7,6 +7,9 @@
  */
 package com.hinodesoftworks.oshieru;
 
+import com.hinodesoftworks.utils.DatabaseManager;
+import com.hinodesoftworks.utils.DatabaseHelper;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.Activity;
@@ -15,14 +18,23 @@ import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.ActionBar.TabListener;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 
 public class CharacterListActivity extends Activity implements TabListener
 {	
 	ViewPager viewPager;
 	CharPagerAdapter charPagerAdapter;
+	DatabaseManager databaseManager;
+	DatabaseHelper databaseHelper;
 	
+	
+	public static final int FLAG_HIRA = 0;
+	public static final int FLAG_KATA = 1;
+	public static final int FLAG_KANJI = 2;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
@@ -49,44 +61,67 @@ public class CharacterListActivity extends Activity implements TabListener
 				actionBar.setSelectedNavigationItem(position);
 			}
 		});
+
+        Tab tabToAdd = actionBar.newTab();
+        tabToAdd.setText("Hiragana");
+        tabToAdd.setTabListener(this);
+        actionBar.addTab(tabToAdd);
+	    
+        tabToAdd = actionBar.newTab();
+        tabToAdd.setText("Katakana");
+        tabToAdd.setTabListener(this);
+        actionBar.addTab(tabToAdd);
+        
+        tabToAdd = actionBar.newTab();
+        tabToAdd.setText("Kanji");
+        tabToAdd.setTabListener(this);
+        actionBar.addTab(tabToAdd);
 		
-
-	    for (int i = 0; i < 3; i++) 
-	    {
-	        Tab tabToAdd = actionBar.newTab();
-	        tabToAdd.setText("Tab");
-	        tabToAdd.setTabListener(this);
-	        actionBar.addTab(tabToAdd);
-	    }
-
-		
-
+        //get database manager instance.
+        databaseHelper = new DatabaseHelper(this);
+        databaseHelper.openDatabase();
+        SQLiteDatabase database = databaseHelper.getDatabase();
+        databaseManager = new DatabaseManager(database);
 	}
 	
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft)
 	{
-		// TODO Auto-generated method stub
-		
+		//do nothing
 	}
 
 
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft)
 	{
-		// TODO Auto-generated method stub
-		
+		viewPager.setCurrentItem(tab.getPosition());
+
 	}
 
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft)
 	{
-		// TODO Auto-generated method stub
-		
+		//do nothing
 	}
 
+	
+	public Cursor getCursor(int flag)
+	{
+		switch (flag)
+		{
+			case FLAG_HIRA:
+				return databaseManager.querySingleTableData("hiragana");
+			case FLAG_KATA:
+				return databaseManager.querySingleTableData("katakana");
+			case FLAG_KANJI:
+				return databaseManager.querySingleTableData("kanji_g1");
+			default:
+				throw new IllegalStateException();
+		}
+		
+	}
 	
 	
 	private class CharPagerAdapter extends FragmentPagerAdapter
@@ -101,27 +136,28 @@ public class CharacterListActivity extends Activity implements TabListener
 		public Fragment getItem(int position)
 		{
 			
-			//tabs have fixed positions.
-			
-			HiraganaListFragment hlf = new HiraganaListFragment();
-			return hlf;
-		
+			switch (position)
+			{
+				case 0:
+					HiraganaListFragment hlf = new HiraganaListFragment();
+					return hlf;
+				case 1:
+					KatakanaListFragment klf = new KatakanaListFragment();
+					return klf;
+				case 2:
+					KanjiListFragment kjlf = new KanjiListFragment();
+					return kjlf;
+				default:
+					throw new IllegalStateException();
+			}
 		}
 
 		@Override
 		public int getCount()
 		{
-			// TODO Auto-generated method stub
+			//Static number of tabs.
 			return 3;
 		}
-
-		@Override
-		public CharSequence getPageTitle(int position)
-		{
-			// TODO Auto-generated method stub
-			return "Tab";
-		}
-		
 		
 		
 	}

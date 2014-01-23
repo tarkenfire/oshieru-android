@@ -13,16 +13,12 @@ public class KanaCursorAdapter extends CursorAdapter
 	public static final int KANA_CHAR_FIELD = 1;
 	public static final int KANA_ROMA_FIELD = 2;
 	
-	private Cursor cursor;
-	private Context ctx;
 	private LayoutInflater vi;
 	
 	public KanaCursorAdapter(Context context, Cursor c, boolean autoRequery)
 	{
 		super(context, c, autoRequery);
-		this.ctx = context;
-		this.vi = LayoutInflater.from(context);
-				
+		this.vi = LayoutInflater.from(context);		
 	}
 
 	@Override
