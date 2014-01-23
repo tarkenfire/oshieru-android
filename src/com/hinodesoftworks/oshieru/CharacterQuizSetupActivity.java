@@ -19,6 +19,9 @@ public class CharacterQuizSetupActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz_setup);
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Quiz Setup");
 	}
 	
 	public void onClick(View v)

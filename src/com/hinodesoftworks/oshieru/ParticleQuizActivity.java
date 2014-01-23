@@ -48,6 +48,9 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_particle_quiz);
 		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Particle Quiz");
+		
 		databaseHelper = new DatabaseHelper(this);
 		databaseHelper.openDatabase();
 		SQLiteDatabase database = databaseHelper.getDatabase();

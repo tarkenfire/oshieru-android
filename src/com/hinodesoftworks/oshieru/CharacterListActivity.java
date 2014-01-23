@@ -35,6 +35,9 @@ public class CharacterListActivity extends Activity implements TabListener
 		final ActionBar actionBar = this.getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
+		//TODO: Get Title from resource rather than hard code
+		actionBar.setTitle("Oshieru - Character Lists");
+		
 		
 		viewPager = (ViewPager)findViewById(R.id.char_pager);
 		viewPager.setAdapter(charPagerAdapter);

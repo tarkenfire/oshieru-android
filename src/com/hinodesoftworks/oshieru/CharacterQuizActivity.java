@@ -48,6 +48,10 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_quiz);
 		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Character Quiz");
+		
+		
 		databaseHelper = new DatabaseHelper(this);
 		databaseHelper.openDatabase();
 		SQLiteDatabase database = databaseHelper.getDatabase();

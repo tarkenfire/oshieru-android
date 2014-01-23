@@ -28,6 +28,9 @@ public class MainMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Main Menu");
 	}
 	
 	public void onClick(View v)

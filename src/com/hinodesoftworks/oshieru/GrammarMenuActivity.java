@@ -19,6 +19,9 @@ public class GrammarMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_grammar_menu);	
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Grammar");
 	}
 	
 	public void onClick(View v)

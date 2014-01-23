@@ -17,5 +17,8 @@ public class VocabMasterListActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_vocab_list);
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Vocab Sets");
 	}
 }

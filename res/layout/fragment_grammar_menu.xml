@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/placeholder_conj"
+		android:background="@drawable/conj_button_selector"
         android:onClick="onClick"
         />
     
@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/placeholder_parts"
+        android:background="@drawable/particle_button_selector"
+        android:layout_marginTop="1dp"
         android:onClick="onClick"
         />
     

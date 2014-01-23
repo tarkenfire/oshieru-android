@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/placeholder_char"
+        android:background="@drawable/char_button_selector"
         android:onClick="onClick"
         />
     
@@ -20,7 +20,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/placeholder_gram"
+		android:background="@drawable/grammar_button_selector"
+		android:layout_marginTop="1dp"
         android:onClick="onClick"
         />
     
@@ -29,7 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:src="@drawable/placeholder_vocab"
+		android:background="@drawable/vocab_button_selector"
+		android:layout_marginTop="1dp"
         android:onClick="onClick"
         />
     

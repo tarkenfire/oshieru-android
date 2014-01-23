@@ -17,6 +17,9 @@ public class ConjugationSifterActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_conj_sifter);
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Verb Conjugation");
 	}
 	
 }

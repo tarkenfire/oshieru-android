@@ -19,6 +19,9 @@ public class CharacterMenuActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_menu);
+		
+		//TODO: Get Title from resource rather than hard code
+		getActionBar().setTitle("Oshieru - Characters");
 	}
 	
 	public void onClick(View v)
