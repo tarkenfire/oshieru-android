@@ -24,43 +24,53 @@
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.CharacterMenuActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">          
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity"
+            android:theme="@style/CharacterTheme">          
         </activity>
         
 		<activity android:name="com.hinodesoftworks.oshieru.CharacterListActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity"
+            android:theme="@style/CharacterTheme">
         </activity>
 		
         <activity android:name="com.hinodesoftworks.oshieru.CharacterDetailActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterListActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterListActivity"
+            android:theme="@style/CharacterTheme">
         </activity>
         
 		<activity android:name="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.CharacterMenuActivity"
+            android:theme="@style/CharacterTheme">
         </activity>
         
 		<activity android:name="com.hinodesoftworks.oshieru.CharacterQuizActivity"
-		    android:parentActivityName="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity">
+		    android:parentActivityName="com.hinodesoftworks.oshieru.CharacterQuizSetupActivity"
+		    android:theme="@style/CharacterTheme">
 		</activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.GrammarMenuActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity"
+            android:theme="@style/GrammarTheme">
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.ConjugationSifterActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity"
+            android:theme="@style/GrammarTheme">
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.ParticleQuizActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.GrammarMenuActivity"
+            android:theme="@style/GrammarTheme">
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.VocabMasterListActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.MainMenuActivity"
+            android:theme="@style/VocabularyTheme">
         </activity>
         
         <activity android:name="com.hinodesoftworks.oshieru.VocabDetailListActivity"
-            android:parentActivityName="com.hinodesoftworks.oshieru.VocabMasterListActivity">
+            android:parentActivityName="com.hinodesoftworks.oshieru.VocabMasterListActivity"
+            android:theme="@style/VocabularyTheme">
         </activity>
         
     </application>

@@ -7,27 +7,18 @@
  */
 package com.hinodesoftworks.oshieru;
 
-import com.hinodesoftworks.utils.DatabaseHelper;
-import com.hinodesoftworks.utils.DatabaseManager;
-
 import android.app.ActionBar;
+import android.app.ActionBar.Tab;
 import android.app.Activity;
-import android.app.ListFragment;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.ActionBar.TabListener;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-public class CharacterListActivity extends Activity
+public class CharacterListActivity extends Activity implements TabListener
 {	
 	ViewPager viewPager;
 	CharPagerAdapter charPagerAdapter;
@@ -59,12 +50,40 @@ public class CharacterListActivity extends Activity
 
 	    for (int i = 0; i < 3; i++) 
 	    {
-	        actionBar.addTab(actionBar.newTab());
+	        Tab tabToAdd = actionBar.newTab();
+	        tabToAdd.setText("Tab");
+	        tabToAdd.setTabListener(this);
+	        actionBar.addTab(tabToAdd);
 	    }
 
 		
 
 	}
+	
+
+	@Override
+	public void onTabReselected(Tab tab, FragmentTransaction ft)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onTabSelected(Tab tab, FragmentTransaction ft)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void onTabUnselected(Tab tab, FragmentTransaction ft)
+	{
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 	
 	private class CharPagerAdapter extends FragmentPagerAdapter
@@ -103,5 +122,6 @@ public class CharacterListActivity extends Activity
 		
 		
 	}
+
 
 }

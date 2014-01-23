@@ -14,7 +14,58 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+		<item name="android:actionBarTabStyle">@style/ActionBarTabs</item>
+		<item name="android:actionBarStyle">@style/ActionBar.Solid</item>
     </style>
+    
+    <!-- Colored Themes -->
+	<style name="CharacterTheme" parent="AppBaseTheme">
+		<item name="android:actionBarTabStyle">@style/ActionBarTabs</item>
+		<item name="android:actionBarStyle">@style/ActionBar.Character</item>
+	</style>
+	
+	<style name="GrammarTheme" parent="AppBaseTheme">
+   		<item name="android:actionBarStyle">@style/ActionBar.Grammar</item>
+	</style>
+	
+	<style name="VocabularyTheme" parent="AppBaseTheme">
+   		<item name="android:actionBarStyle">@style/ActionBar.Vocabulary</item>
+	</style>
+      
+      
+    <!-- ActionBar tabs styles -->
+    <style name="ActionBarTabs"
+           parent="@android:style/Widget.Holo.ActionBar.TabView">
+        <!-- tab indicator -->
+        <item name="android:background">@drawable/tab_indicator_selector</item>
+    </style>
+    
+    <!-- Actionbar Backgrounds -->
+	<style name="ActionBar.Solid" parent="@android:style/Widget.Holo.ActionBar.Solid">
+        <item name="android:backgroundStacked">@drawable/ab_stacked_solid</item>
+		<item name="android:titleTextStyle">@style/ActionBarTitleText</item>
+    </style>
+    
+	<style name="ActionBar.Character" parent="@style/ActionBar.Solid">
+	    <item name="android:background">#F8A6B7</item>
+	    
+	</style>
+	
+	<style name="ActionBar.Grammar" parent="@style/ActionBar.Solid">
+	       <item name="android:background">#A1A6DA</item>
+	</style>
+		
+	<style name="ActionBar.Vocabulary" parent="@style/ActionBar.Solid">
+	     <item name="android:background">#9BD3A9</item>
+	</style>
+    
+	<!-- ActionBar title text -->
+    <style name="ActionBarTitleText"
+           parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+	
+    
+    
 
 </resources>
