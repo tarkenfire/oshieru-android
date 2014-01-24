@@ -21,4 +21,5 @@ public class VocabMasterListActivity extends Activity
 		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Vocab Sets");
 	}
+	
 }

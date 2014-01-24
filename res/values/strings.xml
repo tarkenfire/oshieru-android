@@ -8,5 +8,7 @@
     <string name="label_kanji_radical">Radical</string>
     <string name="label_kanji_kun">Kun Readings</string>
     <string name="label_kanji_on">On Readings</string>
+    
+    <string name="header_vocab">Select a Vocab Set</string>
 
 </resources>

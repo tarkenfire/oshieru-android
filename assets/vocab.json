@@ -1,0 +1,79 @@
+{
+  "vocab_sets": [
+    {
+      "name": "Classroom",
+      "vocab": [
+        {
+          "term": "先生",
+          "def": "(sensei) - Teacher, Master, Doctor"
+        },
+        {
+          "term": "ペン",
+          "def": "(pen) - Pen"
+        },
+        {
+          "term": "教室",
+          "def": "(kyuushutsu) - Classroom"
+        },
+        {
+          "term": "学生",
+          "def": "(gakusei) - Student"
+        },
+        {
+          "term": "学年度",
+          "def": "(gakunendo) - School Year"
+        }
+      ]
+    },
+    {
+      "name": "Town",
+      "vocab": [
+        {
+          "term": "地下駅",
+          "def": "(chikaeki) - Subway Station"
+        },
+        {
+          "term": "店舗",
+          "def": "(tenpa) - Store"
+        },
+        {
+          "term": "デパート",
+          "def": "(depaato) - Department Store"
+        },
+        {
+          "term": "車庫",
+          "def": "(shachi) - Garage"
+        },
+        {
+          "term": "役場",
+          "def": "(yakuba) - Town Hall"
+        }
+      ]
+    },
+    {
+      "name": "Food",
+      "vocab": [
+        {
+          "term": "鶏肉",
+          "def": "(keiniku) - Chicken Meat"
+        },
+        {
+          "term": "魚肉",
+          "def": "(gyoniku) - Fish Meat"
+        },
+        {
+          "term": "野菜",
+          "def": "(yasai) - Vegetable"
+        },
+        {
+          "term": "食塩",
+          "def": "(shokuen) - Table Salt"
+        },
+        {
+          "term": "箸",
+          "def": "(hashi) - Chopsticks"
+        }
+      ]
+    }
+  ]
+}

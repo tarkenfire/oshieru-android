@@ -9,8 +9,11 @@ android:weightSum="10" >
 	    android:id="@+id/vocab_header"
 	    android:layout_width="match_parent"
 	    android:layout_height="0dp"
-	    android:text="PLACEHOLDER HEADER"
+	    android:text="@string/header_vocab"
 	    android:gravity="center"
+	    android:textSize="35sp"
+	    android:textColor="#FFFFFF"
+	    android:background="#b3f4b3"
 	    android:layout_weight="3" />
 	
 	<ListView
