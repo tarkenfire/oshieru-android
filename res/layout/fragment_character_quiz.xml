@@ -9,14 +9,23 @@
         android:layout_width="match_parent"
     	android:layout_height="wrap_content"
     	android:text="Score: 0 Correct - 0 Incorrect"
+    	android:gravity="center"
+        android:background="#ffcfd7"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="20dp"
+        android:textSize="20sp"
         />
     
     <TextView
         android:id="@+id/char_quiz_question"
         android:layout_height="wrap_content"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:textSize="100sp"
         android:text="X"
+        android:layout_gravity="center_horizontal"
+        android:background="#ffcfd7"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
         />
     
     <Button
@@ -24,6 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Answer 1"
+        android:background="@drawable/char_quiz_answer_button_selector"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
         />
 
 	<Button
@@ -31,12 +43,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Answer 2"
+        android:background="@drawable/char_quiz_answer_button_selector"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
         />
 	<Button
         android:id="@+id/char_quiz_button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Answer 3"
+        android:background="@drawable/char_quiz_answer_button_selector"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="10dp"
         />
 	
 	<Button
@@ -44,6 +62,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Answer 4"
+        android:background="@drawable/char_quiz_answer_button_selector"
+        android:textColor="#FFFFFF"
         />
     
     

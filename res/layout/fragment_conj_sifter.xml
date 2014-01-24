@@ -12,7 +12,9 @@
     <Button 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Conjugate"        
+        android:text="Conjugate" 
+        android:background="@drawable/particle_quiz_answer_button_selector"
+        android:textColor="#FFFFFF"       
         />
     
     
