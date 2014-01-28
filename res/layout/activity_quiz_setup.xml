@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+   
     <fragment class="com.hinodesoftworks.oshieru.CharacterQuizSetupFragment"
         android:id="@+id/fragment_char_quiz"
         android:layout_width="match_parent"

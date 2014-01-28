@@ -7,7 +7,37 @@
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Super Temporary Start Quiz Button"
+        android:text="Select Quiz Sets"
+        />
+    
+    <CheckBox 
+        android:id="@+id/quiz_setup_hira_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    
+    <CheckBox
+        android:id="@+id/quiz_setup_kata_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+    
+    <CheckBox
+        android:id="@+id/quiz_setup_kanji_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         />
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Quiz Sets"
+        />
+    
+    <NumberPicker 
+        android:id="@+id/quiz_setup_num_question_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         />
     
     <Button

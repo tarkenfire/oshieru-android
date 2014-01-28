@@ -5,11 +5,13 @@
     android:orientation="vertical" >
     
     <EditText
+        android:id="@+id/conj_sifter_input"
 		android:layout_width="match_parent"
         android:layout_height="wrap_content"
          />
 	
     <Button 
+        android:id="@+id/conj_sifter_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Conjugate" 
@@ -18,11 +20,11 @@
         />
     
     
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="FEATURE NOT IMPLEMENTED. FEATURE NOT IMPLEMENTED."
-        />
+	<ListView
+	    android:id="@+id/conj_sifter_results"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	     />
     
 
 </LinearLayout>
