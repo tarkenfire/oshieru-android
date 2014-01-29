@@ -32,6 +32,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 {
 	QuizManager quizManager;
 	DatabaseHelper databaseHelper;
+	DatabaseManager databaseManager;
 	
 	//UI Handles
 	TextView scoreView;
@@ -55,28 +56,10 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		databaseHelper = new DatabaseHelper(this);
 		databaseHelper.openDatabase();
 		SQLiteDatabase database = databaseHelper.getDatabase();
-		DatabaseManager databaseManager = new DatabaseManager(database);
-		
-		//TODO: Quiz currently just selects everything from the hiragana table for the questions
-		Cursor questions = databaseManager.querySingleTableData("hiragana");
-		ArrayList<QuizQuestion> quizQuestions = new ArrayList<QuizQuestion>();
-		
-		while (questions.moveToNext())
-		{
-			String currChar = questions.getString(1);
-			String currQuest = questions.getString(2);
-			Cursor wrongAnswers = databaseManager.queryLimitedTableData("hiragana", 3, "char", currChar);
-			ArrayList<String> wrongs = new ArrayList<String>();
+		databaseManager = new DatabaseManager(database);
+	
+		ArrayList<QuizQuestion> quizQuestions = this.getQuizQuestions();
 			
-			while (wrongAnswers.moveToNext())
-			{
-				wrongs.add(wrongAnswers.getString(1));
-			}
-			
-			QuizQuestion q = new QuizQuestion(currChar, currQuest, wrongs);
-			quizQuestions.add(q);
-		}
-		
 		quizManager = new QuizManager();
 		quizManager.createNewQuiz(quizQuestions.size(), quizQuestions);
 		quizManager.setQuizQuestionListener(this);
@@ -175,4 +158,110 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		Button b = (Button)v;
 		quizManager.answerQuestion(b.getText().toString());	
 	}
+	
+	private ArrayList<QuizQuestion> getQuizQuestions()
+	{
+		//get flags from the bundle. 
+		Bundle extras = this.getIntent().getExtras();
+		boolean kataFlag = extras.getBoolean("flag_kata");
+		boolean hiraFlag = extras.getBoolean("flag_hira");
+		boolean kanjiFlag = extras.getBoolean("flag_kanji");
+		int maxCount = extras.getInt("question_num_value");
+		int count = 0;
+		ArrayList<QuizQuestion> questionsToReturn = new ArrayList<QuizQuestion>();
+		Cursor questionCursor = null;
+		Cursor wrongCursor = null;
+		ArrayList<String> wrongs = new ArrayList<String>();
+		
+		//add items in a round robin fashion till all of the questions are answered.
+		while (count < maxCount)
+		{
+			//clear reused variables
+			wrongs.clear();
+			
+			if (kataFlag)
+			{
+				questionCursor = databaseManager.queryRandomTableData(1, "katakana");
+				questionCursor.moveToFirst();
+				
+				String selectedChar = questionCursor.getString(1);
+				String selectedAnswer = questionCursor.getString(2);
+				
+				wrongCursor = databaseManager.queryLimitedTableData("katakana", 3, "romj", selectedAnswer);
+				
+				while (wrongCursor.moveToNext())
+				{
+					wrongs.add(wrongCursor.getString(2));
+				}
+				
+				QuizQuestion q = new QuizQuestion(selectedAnswer, selectedChar, wrongs);
+				questionsToReturn.add(q);
+				
+				questionCursor.close();
+				wrongCursor.close();
+				
+				count++;
+			}
+			
+			//clear reused variables
+			wrongs.clear();
+			
+			if (hiraFlag)
+			{
+				questionCursor = databaseManager.queryRandomTableData(1, "hiragana");
+				questionCursor.moveToFirst();
+				
+				String selectedChar = questionCursor.getString(1);
+				String selectedAnswer = questionCursor.getString(2);
+				
+				wrongCursor = databaseManager.queryLimitedTableData("hiragana", 3, "romj", selectedAnswer);
+				
+				while (wrongCursor.moveToNext())
+				{
+					wrongs.add(wrongCursor.getString(2));
+				}
+				
+				QuizQuestion q = new QuizQuestion(selectedAnswer, selectedChar, wrongs);
+				questionsToReturn.add(q);
+				
+				//close the cursors for memory reasons.
+				questionCursor.close();
+				wrongCursor.close();
+				
+				count++;
+			}
+			
+			//clear reused variables
+			wrongs.clear();
+			
+			if (kanjiFlag)
+			{
+				//same as others, but because of longer answers, I substring them before
+				//adding.
+				questionCursor = databaseManager.queryRandomTableData(1, "kanji_g1");
+				questionCursor.moveToFirst();
+				
+				String selectedChar = questionCursor.getString(1);
+				String selectedAnswer = questionCursor.getString(5);
+				
+				wrongCursor = databaseManager.queryLimitedTableData("kanji_g1", 3, "meaning", selectedAnswer);
+				
+				while (wrongCursor.moveToNext())
+				{
+					wrongs.add(wrongCursor.getString(5));
+				}
+				
+				QuizQuestion q = new QuizQuestion(selectedAnswer, selectedChar, wrongs);
+				questionsToReturn.add(q);
+			
+				questionCursor.close();
+				wrongCursor.close();
+				
+				count++;
+			}
+		}
+		
+		return questionsToReturn;
+	}
+	
 }

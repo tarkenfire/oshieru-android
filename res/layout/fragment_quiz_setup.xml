@@ -15,29 +15,45 @@
 		android:layout_marginTop="1dp"
         />
     
-    <CheckBox 
-        android:id="@+id/quiz_setup_hira_check"
+    <HorizontalScrollView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-		android:button="@drawable/hira_check_selector"
-        android:gravity="center"
-        />
-    
-    <CheckBox
-        android:id="@+id/quiz_setup_kata_check"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@drawable/kata_check_selector"
-        android:gravity="center"
-         />
-    
-    <CheckBox
-        android:id="@+id/quiz_setup_kanji_check"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:button="@drawable/kanji_check_selector"
-        android:gravity="center"
-         />
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="3dp"
+        >
+	    <LinearLayout
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:orientation="horizontal">
+		    <CheckBox 
+		        android:id="@+id/quiz_setup_hira_check"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+				android:button="@drawable/hira_check_selector"
+		        android:gravity="center"
+		        android:layout_marginLeft="4dp"
+		        android:checked="true"
+		        />
+		    <CheckBox
+		        android:id="@+id/quiz_setup_kata_check"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:button="@drawable/kata_check_selector"
+		        android:gravity="center"
+		        android:layout_marginLeft="4dp"
+		         />
+		    
+		    <CheckBox
+		        android:id="@+id/quiz_setup_kanji_check"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:button="@drawable/kanji_check_selector"
+		        android:gravity="center"
+		        android:layout_marginLeft="4dp"
+		         />
+	    
+	    </LinearLayout>
+    </HorizontalScrollView>
     
     <TextView 
         android:layout_width="match_parent"

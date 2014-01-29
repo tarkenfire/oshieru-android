@@ -27,7 +27,8 @@ public class DatabaseManager
 	
 	public Cursor queryRandomTableData(int numOfResults, String tableName)
 	{
-		return null;
+		return database.query(tableName, null, null, 
+				null, null, null, "RANDOM()", String.valueOf(numOfResults));
 	}
 	
 	public Cursor queryLimitedTableData(String table, int limit, 
