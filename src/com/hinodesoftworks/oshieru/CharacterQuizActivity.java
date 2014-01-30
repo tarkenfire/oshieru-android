@@ -203,9 +203,6 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 				count++;
 			}
 			
-			//clear reused variables
-			wrongs.clear();
-			
 			if (hiraFlag)
 			{
 				questionCursor = databaseManager.queryRandomTableData(1, "hiragana");
@@ -230,9 +227,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 				
 				count++;
 			}
-			
-			//clear reused variables
-			wrongs.clear();
+		
 			
 			if (kanjiFlag)
 			{

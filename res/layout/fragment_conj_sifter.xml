@@ -9,6 +9,10 @@
 		android:layout_width="match_parent"
         android:layout_height="wrap_content"
          />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLACEHOLDER" />
 	
     <Button 
         android:id="@+id/conj_sifter_submit"
@@ -17,6 +21,7 @@
         android:text="Conjugate" 
         android:background="@drawable/particle_quiz_answer_button_selector"
         android:textColor="#FFFFFF"       
+        android:onClick="onClick"
         />
     
     
@@ -24,6 +29,7 @@
 	    android:id="@+id/conj_sifter_results"
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
+	    android:layout_marginTop="20dp"
 	     />
     
 
