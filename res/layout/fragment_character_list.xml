@@ -14,6 +14,6 @@
                android:layout_height="match_parent"
                android:layout_centerInParent="true"
                android:textSize="20sp"
-               android:text="PLACEHOLDER STRING"/>
+               android:text="@string/list_empty"/>
     
 </RelativeLayout>

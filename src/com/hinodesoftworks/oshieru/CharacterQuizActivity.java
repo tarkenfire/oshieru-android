@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -22,12 +22,14 @@ import android.content.DialogInterface;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * The Class CharacterQuizActivity.
+ */
 public class CharacterQuizActivity extends Activity implements QuizQuestionListener, OnClickListener
 {
 	QuizManager quizManager;
@@ -43,13 +45,14 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 	Button answer3;
 	Button answer4;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_character_quiz);
-		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Character Quiz");
 		
 		
@@ -83,6 +86,9 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 
 	
 	
+	/* (non-Javadoc)
+	 * @see com.hinodesoftworks.utils.QuizManager.QuizQuestionListener#onNewQuestion(java.lang.String, java.lang.String, java.util.ArrayList, int, int)
+	 */
 	@Override
 	public void onNewQuestion(String question, String answer, ArrayList<String> incAnswers, 
 			int correct, int incorrect)
@@ -124,6 +130,9 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see com.hinodesoftworks.utils.QuizManager.QuizQuestionListener#onQuizFinished(int, int)
+	 */
 	@Override
 	public void onQuizFinished(int correct, int incorrect)
 	{
@@ -152,6 +161,9 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see android.view.View.OnClickListener#onClick(android.view.View)
+	 */
 	@Override
 	public void onClick(View v)
 	{
@@ -159,6 +171,11 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		quizManager.answerQuestion(b.getText().toString());	
 	}
 	
+	/**
+	 * Gets the quiz questions.
+	 *
+	 * @return the quiz questions
+	 */
 	private ArrayList<QuizQuestion> getQuizQuestions()
 	{
 		//get flags from the bundle. 

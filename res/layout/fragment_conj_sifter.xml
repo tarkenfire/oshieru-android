@@ -8,17 +8,19 @@
         android:id="@+id/conj_sifter_input"
 		android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="@string/hint_conj_entry"
          />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PLACEHOLDER" />
+        android:layout_marginLeft="5dp"
+        android:text="@string/conj_plain_verb_warning" />
 	
     <Button 
         android:id="@+id/conj_sifter_submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Conjugate" 
+        android:text="@string/conj_conj_button" 
         android:background="@drawable/particle_quiz_answer_button_selector"
         android:textColor="#FFFFFF"       
         android:onClick="onClick"

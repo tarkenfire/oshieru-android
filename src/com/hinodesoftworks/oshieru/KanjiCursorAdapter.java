@@ -1,3 +1,10 @@
+/* 
+ * Date: Jan 30, 2014
+ * Project: Oshieru
+ * Package: com.hinodesoftworks.oshieru
+ * @author Michael Mancuso
+ *
+ */
 package com.hinodesoftworks.oshieru;
 
 import android.content.Context;
@@ -8,6 +15,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+/**
+ * The Class KanjiCursorAdapter.
+ */
 public class KanjiCursorAdapter extends CursorAdapter
 {
 	public static final int KANJI_CHAR_FIELD = 1;
@@ -16,12 +26,22 @@ public class KanjiCursorAdapter extends CursorAdapter
 
 	private LayoutInflater vi;
 	
+	/**
+	 * Instantiates a new kanji cursor adapter.
+	 *
+	 * @param context the context
+	 * @param c the cursor
+	 * @param autoRequery the auto requery flag
+	 */
 	public KanjiCursorAdapter(Context context, Cursor c, boolean autoRequery)
 	{
 		super(context, c, autoRequery);
 		this.vi = LayoutInflater.from(context);		
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.widget.CursorAdapter#bindView(android.view.View, android.content.Context, android.database.Cursor)
+	 */
 	@Override
 	public void bindView(View view, Context context, Cursor cursor)
 	{
@@ -35,6 +55,9 @@ public class KanjiCursorAdapter extends CursorAdapter
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.CursorAdapter#newView(android.content.Context, android.database.Cursor, android.view.ViewGroup)
+	 */
 	@Override
 	public View newView(Context context, Cursor cursor, ViewGroup parent)
 	{

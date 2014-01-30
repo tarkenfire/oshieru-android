@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -15,7 +15,9 @@ import java.util.regex.Pattern;
 import com.hinodesoftworks.utils.ConjugationItem;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,6 +25,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ListView;
 
+/**
+ * The Class ConjugationSifterActivity.
+ */
 public class ConjugationSifterActivity extends Activity
 {
 	public static final int FLAG_TYPE1_VERB = 1; //"u verbs" 
@@ -39,19 +44,25 @@ public class ConjugationSifterActivity extends Activity
 	ListView resultView;
 	int verbTypeFlag = FLAG_TYPE2_VERB;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_conj_sifter);
-		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Verb Conjugation");
 		
 		inputField = (EditText)findViewById(R.id.conj_sifter_input);
 		resultView = (ListView)findViewById(R.id.conj_sifter_results);
 	}
 	
+	/**
+	 *  On click callback for button in this activity's fragment.
+	 *
+	 * @param v the button clicked
+	 */
 	public void onClick(View v)
 	{
 		String inputValue = inputField.getText().toString();
@@ -84,10 +95,36 @@ public class ConjugationSifterActivity extends Activity
 		}
 		else
 		{
+			AlertDialog.Builder adBuilder = new AlertDialog.Builder(this);
 			
+			adBuilder.setTitle("Invalid Entry");
+			
+			adBuilder.setMessage("Entry was not recognized as a valid verb. Please check spelling and try again.");
+			
+			adBuilder.setCancelable(false);
+			adBuilder.setPositiveButton("Ok", 
+					new DialogInterface.OnClickListener()
+					{
+						
+						@Override
+						public void onClick(DialogInterface dialog, int which)
+						{
+							//do nothing
+						}
+					}
+					);
+			
+			AlertDialog dialog = adBuilder.create();
+			dialog.show();		
 		}
 	}
 	
+	/**
+	 * Sets the verb type flag.
+	 *
+	 * @param verb the potential verb
+	 * @return true, if input is a verb
+	 */
 	private boolean setVerbTypeFlag(String verb)
 	{
 		//the app will go on good faith that the user will enter actual japanese
@@ -133,6 +170,12 @@ public class ConjugationSifterActivity extends Activity
 		return false;
 	}
 	
+	/**
+	 * Checks if verb is in english only.
+	 *
+	 * @param verb the verb
+	 * @return true, if verb is english only
+	 */
 	private boolean isEnglishOnly(String verb)
 	{
 		Pattern basicEngChars = Pattern.compile("[A-Za-z]+$");
@@ -141,6 +184,12 @@ public class ConjugationSifterActivity extends Activity
 		return match.matches();
 	}
 	
+	/**
+	 * Conjugates verb to the formal form.
+	 *
+	 * @param verb the verb
+	 * @return the conjugated verb
+	 */
 	private String makeVerbFormalForm(String verb)
 	{
 		//u verb - remove last u, replace with imasu
@@ -196,6 +245,12 @@ public class ConjugationSifterActivity extends Activity
 		return stringToReturn;
 	}
 	
+	/**
+	 * Gets the past tense formal.
+	 *
+	 * @param verbFormal the verb formal
+	 * @return the past tense formal
+	 */
 	private String getPastTenseFormal(String verbFormal)
 	{
 		switch(verbTypeFlag)
@@ -235,6 +290,12 @@ public class ConjugationSifterActivity extends Activity
 		return "";
 	}
 	
+	/**
+	 * Gets the present negative tense formal conjugatuion.
+	 *
+	 * @param verbFormal the verb in formal form
+	 * @return the present negative tense formal conjugation
+	 */
 	private String getPresentNegativeTenseFormal(String verbFormal)
 	{
 		switch(verbTypeFlag)
@@ -272,6 +333,12 @@ public class ConjugationSifterActivity extends Activity
 		return "";
 	}	
 	
+	/**
+	 * Gets the past negative tense formal conjugation.
+	 *
+	 * @param verbFormal the verb in formal form
+	 * @return the past negative tense formal conjugation
+	 */
 	private String getPastNegativeTenseFormal(String verbFormal)
 	{
 		switch(verbTypeFlag)

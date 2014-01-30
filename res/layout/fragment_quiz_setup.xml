@@ -7,7 +7,7 @@
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quiz Sets"
+        android:text="@string/quiz_setup_sets"
 		android:textColor="#FFFFFF"
 		android:background="#ffcfd7"
 		android:textSize="25sp"
@@ -58,7 +58,7 @@
     <TextView 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Number of Questions"
+        android:text="@string/quiz_setup_number_of_questions"
         android:textColor="#FFFFFF"
 		android:background="#ffcfd7"
 		android:textSize="25sp"
@@ -75,7 +75,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Quiz" 
+        android:text="@string/quiz_setup_start_quiz" 
         android:onClick="onClick"
         android:textColor="#FFFFFF"
         android:background="@drawable/char_quiz_answer_button_selector"

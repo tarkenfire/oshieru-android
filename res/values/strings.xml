@@ -9,6 +9,26 @@
     <string name="label_kanji_kun">Kun Readings</string>
     <string name="label_kanji_on">On Readings</string>
     
+    <string name="hint_conj_entry">Enter verb</string>
+    
+    <string name="quiz_setup_sets">Quiz Sets</string>
+    <string name="quiz_setup_number_of_questions">Number of Questions</string>
+    <string name="quiz_setup_start_quiz">Start Quiz</string>
+    
+    <string name="conj_plain_verb_warning">Use Dictionary(Plain) form verbs only.</string>
+    <string name="conj_conj_button">Conjugate</string>
+    
     <string name="header_vocab">Select a Vocab Set</string>
+    <string name="list_empty">List is empty.</string>
+    
+    <string name="quiz_score_default">Score: 0 Correct - 0 Incorrect</string>
+    
+    <string name="access_char_list">Character List</string>
+	<string name="access_char_quiz">Character Quiz</string>
+	<string name="access_conjugation">Conjugation Sifter</string>
+	<string name="access_particles">Particle Quiz</string>
+	<string name="access_chars">Character Menu</string>
+	<string name="access_grammar">Grammar Menu</string>
+	<string name="access_vocab">Vocabulary Menu</string>
 
 </resources>

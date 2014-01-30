@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 23, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -15,16 +15,24 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+/**
+ * The Class VocabSetArrayAdapter.
+ */
 public class VocabSetArrayAdapter extends BaseAdapter
 {
 	
 	private JSONArray items;
 	private Context ctx;
 	
+	/**
+	 * Instantiates a new vocab set array adapter.
+	 *
+	 * @param context the context
+	 * @param array the array
+	 */
 	public VocabSetArrayAdapter(Context context, JSONArray array)
 	{
 		this.ctx = context;
@@ -32,6 +40,9 @@ public class VocabSetArrayAdapter extends BaseAdapter
 	}
 	
 	
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getCount()
+	 */
 	@Override
 	public int getCount()
 	{
@@ -39,10 +50,12 @@ public class VocabSetArrayAdapter extends BaseAdapter
 		return items.length();
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getItem(int)
+	 */
 	@Override
 	public Object getItem(int position)
 	{
-		// TODO Auto-generated method stub
 		try
 		{
 			return items.get(position);
@@ -54,12 +67,18 @@ public class VocabSetArrayAdapter extends BaseAdapter
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getItemId(int)
+	 */
 	@Override
 	public long getItemId(int position)
 	{
 		return position;
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getView(int, android.view.View, android.view.ViewGroup)
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{

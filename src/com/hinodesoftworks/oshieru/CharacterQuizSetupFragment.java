@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -14,10 +14,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.NumberPicker;
 
+/**
+ * The Class CharacterQuizSetupFragment.
+ */
 public class CharacterQuizSetupFragment extends Fragment
 {
 	NumberPicker questionNumPicker;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
@@ -25,6 +31,9 @@ public class CharacterQuizSetupFragment extends Fragment
 		return inflater.inflate(R.layout.fragment_quiz_setup, null);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{

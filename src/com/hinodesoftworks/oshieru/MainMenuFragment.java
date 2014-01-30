@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -14,8 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+/**
+ * The Class MainMenuFragment.
+ */
 public class MainMenuFragment extends Fragment
 {
+	
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)

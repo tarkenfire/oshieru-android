@@ -20,35 +20,56 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 
+/**
+ * The Class ConjugationItemAdapter.
+ */
 public class ConjugationItemAdapter extends BaseAdapter
 {
 	private ArrayList<ConjugationItem> items;
 	private Context ctx;
 	
+	/**
+	 * Instantiates a new conjugation item adapter.
+	 *
+	 * @param context the activity context
+	 * @param items the items managed by the adapter
+	 */
 	public ConjugationItemAdapter(Context context, ArrayList<ConjugationItem> items)
 	{
 		this.items = items;
 		this.ctx = context;
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getCount()
+	 */
 	@Override
 	public int getCount()
 	{
 		return items.size();
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getItem(int)
+	 */
 	@Override
 	public Object getItem(int position)
 	{
 		return items.get(position);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getItemId(int)
+	 */
 	@Override
 	public long getItemId(int position)
 	{
 		return position;
 	}
 
+	/* (non-Javadoc)
+	 * @see android.widget.Adapter#getView(int, android.view.View, android.view.ViewGroup)
+	 */
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{

@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -15,6 +15,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * The Class CharacterDetailFragment.
+ */
 public class CharacterDetailFragment extends Fragment
 {
 	TextView charView;
@@ -23,6 +26,9 @@ public class CharacterDetailFragment extends Fragment
 	TextView kunView;
 	TextView onView;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
@@ -30,10 +36,12 @@ public class CharacterDetailFragment extends Fragment
 		return inflater.inflate(R.layout.fragment_character_detail, null);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{
-		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		
 		Activity ref = getActivity();

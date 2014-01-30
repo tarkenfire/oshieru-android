@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -17,10 +17,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/**
+ * The Class VocabDetailListFragment.
+ */
 public class VocabDetailListFragment extends ListFragment
 {
 	TextView header;
 	
+	/* (non-Javadoc)
+	 * @see android.app.ListFragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
@@ -28,6 +34,9 @@ public class VocabDetailListFragment extends ListFragment
 		return inflater.inflate(R.layout.fragment_vocab_detail, null);
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{

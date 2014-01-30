@@ -13,6 +13,7 @@
         android:layout_weight="1"
         android:onClick="onClick"
         android:background="@drawable/list_button_selector"
+        android:contentDescription="@string/access_char_list" 
         />
     
     <ImageButton 
@@ -23,6 +24,7 @@
         android:background="@drawable/char_quiz_button_selector"
         android:onClick="onClick"
         android:layout_marginTop="1dp"
+        android:contentDescription="@string/access_char_quiz"
         />
     
 

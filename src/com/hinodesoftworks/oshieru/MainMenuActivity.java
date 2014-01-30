@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -7,32 +7,33 @@
  */
 package com.hinodesoftworks.oshieru;
 
-import com.hinodesoftworks.utils.DatabaseHelper;
-import com.hinodesoftworks.utils.DatabaseManager;
-
 import android.os.Bundle;
 import android.app.Activity;
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 
+/**
+ * The Class MainMenuActivity.
+ */
 public class MainMenuActivity extends Activity
 {
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_menu);
-		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Main Menu");
 	}
 	
+	/**
+	 *  On click callback for button in this activity's fragment.
+	 *
+	 * @param v the button clicked
+	 */
 	public void onClick(View v)
 	{
 		switch(v.getId())

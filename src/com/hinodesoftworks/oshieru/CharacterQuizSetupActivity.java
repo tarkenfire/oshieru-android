@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -16,6 +16,9 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.NumberPicker;
 
+/**
+ * The Class CharacterQuizSetupActivity.
+ */
 public class CharacterQuizSetupActivity extends Activity
 {
 	NumberPicker questionNumPicker;
@@ -23,13 +26,15 @@ public class CharacterQuizSetupActivity extends Activity
 	CheckBox kataCheck;
 	CheckBox kanjiCheck;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz_setup);
 		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Quiz Setup");
 		
 		questionNumPicker = (NumberPicker)findViewById(R.id.quiz_setup_num_question_picker);
@@ -38,6 +43,11 @@ public class CharacterQuizSetupActivity extends Activity
 		kanjiCheck = (CheckBox)findViewById(R.id.quiz_setup_kanji_check);
 	}
 	
+	/**
+	 * On click callback for button in this activity's fragment.
+	 *
+	 * @param v the button clicked
+	 */
 	public void onClick(View v)
 	{
 		//having none of the checkboxes checked will crash the next activity and must be stopped.

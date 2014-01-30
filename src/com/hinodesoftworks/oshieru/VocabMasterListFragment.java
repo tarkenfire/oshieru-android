@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -27,10 +27,16 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * The Class VocabMasterListFragment.
+ */
 public class VocabMasterListFragment extends ListFragment
 {
 	LinkedHashMap<String, JSONArray> vocabSets;
 	
+	/* (non-Javadoc)
+	 * @see android.app.ListFragment#onCreateView(android.view.LayoutInflater, android.view.ViewGroup, android.os.Bundle)
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState)
@@ -38,6 +44,9 @@ public class VocabMasterListFragment extends ListFragment
 		return inflater.inflate(R.layout.fragment_vocab_list, null);
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.app.ListFragment#onListItemClick(android.widget.ListView, android.view.View, int, long)
+	 */
 	@Override
 	public void onListItemClick(ListView l, View view, int position, long id)
 	{
@@ -54,6 +63,9 @@ public class VocabMasterListFragment extends ListFragment
 		getActivity().startActivity(sendingIntent);
 	}
 	
+	/* (non-Javadoc)
+	 * @see android.app.Fragment#onActivityCreated(android.os.Bundle)
+	 */
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState)
 	{
@@ -61,6 +73,9 @@ public class VocabMasterListFragment extends ListFragment
 		populateData();
 	}
 
+	/**
+	 * Populate data into the vocabulary list.
+	 */
 	private void populateData()
 	{
 		try
@@ -92,7 +107,6 @@ public class VocabMasterListFragment extends ListFragment
 		}
 		catch (JSONException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;
 		}
@@ -101,6 +115,11 @@ public class VocabMasterListFragment extends ListFragment
 	
 	
 	
+	/**
+	 * Gets the JSON file from assets.
+	 *
+	 * @return the JSON string from assets
+	 */
 	private String getJSONFromAssets()
 	{
 		String JSONString = "";
@@ -117,7 +136,6 @@ public class VocabMasterListFragment extends ListFragment
 		}
 		catch (IOException e)
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -22,8 +22,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 
+/**
+ * The Class CharacterListActivity.
+ */
 public class CharacterListActivity extends Activity implements TabListener
 {	
 	ViewPager viewPager;
@@ -36,6 +38,9 @@ public class CharacterListActivity extends Activity implements TabListener
 	public static final int FLAG_KATA = 1;
 	public static final int FLAG_KANJI = 2;
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -46,8 +51,6 @@ public class CharacterListActivity extends Activity implements TabListener
 		
 		final ActionBar actionBar = this.getActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-		
-		//TODO: Get Title from resource rather than hard code
 		actionBar.setTitle("Oshieru - Character Lists");
 		
 		
@@ -85,6 +88,9 @@ public class CharacterListActivity extends Activity implements TabListener
 	}
 	
 
+	/* (non-Javadoc)
+	 * @see android.app.ActionBar.TabListener#onTabReselected(android.app.ActionBar.Tab, android.app.FragmentTransaction)
+	 */
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft)
 	{
@@ -92,6 +98,9 @@ public class CharacterListActivity extends Activity implements TabListener
 	}
 
 
+	/* (non-Javadoc)
+	 * @see android.app.ActionBar.TabListener#onTabSelected(android.app.ActionBar.Tab, android.app.FragmentTransaction)
+	 */
 	@Override
 	public void onTabSelected(Tab tab, FragmentTransaction ft)
 	{
@@ -100,6 +109,9 @@ public class CharacterListActivity extends Activity implements TabListener
 	}
 
 
+	/* (non-Javadoc)
+	 * @see android.app.ActionBar.TabListener#onTabUnselected(android.app.ActionBar.Tab, android.app.FragmentTransaction)
+	 */
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft)
 	{
@@ -107,6 +119,12 @@ public class CharacterListActivity extends Activity implements TabListener
 	}
 
 	
+	/**
+	 * Gets a cursor from the database depending on the flag given to it.
+	 *
+	 * @param flag the flag to query an individual database table
+	 * @return the cursor from the database
+	 */
 	public Cursor getCursor(int flag)
 	{
 		switch (flag)
@@ -124,14 +142,25 @@ public class CharacterListActivity extends Activity implements TabListener
 	}
 	
 	
+	/**
+	 * The Class CharPagerAdapter.
+	 */
 	private class CharPagerAdapter extends FragmentPagerAdapter
 	{
 
+		/**
+		 * Instantiates a new char pager adapter.
+		 *
+		 * @param fm the fragment manager for the pager
+		 */
 		public CharPagerAdapter(FragmentManager fm)
 		{
 			super(fm);
 		}
 
+		/* (non-Javadoc)
+		 * @see android.support.v13.app.FragmentPagerAdapter#getItem(int)
+		 */
 		@Override
 		public Fragment getItem(int position)
 		{
@@ -152,6 +181,9 @@ public class CharacterListActivity extends Activity implements TabListener
 			}
 		}
 
+		/* (non-Javadoc)
+		 * @see android.support.v4.view.PagerAdapter#getCount()
+		 */
 		@Override
 		public int getCount()
 		{

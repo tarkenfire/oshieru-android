@@ -13,6 +13,7 @@
         android:layout_weight="1"
         android:background="@drawable/char_button_selector"
         android:onClick="onClick"
+        android:contentDescription="@string/access_chars"
         />
     
     <ImageButton 
@@ -23,6 +24,7 @@
 		android:background="@drawable/grammar_button_selector"
 		android:layout_marginTop="1dp"
         android:onClick="onClick"
+        android:contentDescription="@string/access_grammar"
         />
     
     <ImageButton 
@@ -33,6 +35,7 @@
 		android:background="@drawable/vocab_button_selector"
 		android:layout_marginTop="1dp"
         android:onClick="onClick"
+        android:contentDescription="@string/access_vocab"
         />
     
 

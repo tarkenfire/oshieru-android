@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 16, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.utils
  * @author Michael Mancuso
@@ -10,6 +10,9 @@ package com.hinodesoftworks.utils;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The Class QuizManager.
+ */
 public class QuizManager
 {
 	private int numOfQuestions = 0;
@@ -21,25 +24,67 @@ public class QuizManager
 	private QuizQuestionListener listener;
 	
 	
+	/**
+	 * The listener interface for receiving quizQuestion events.
+	 * The class that is interested in processing a quizQuestion
+	 * event implements this interface, and the object created
+	 * with that class is registered with a component using the
+	 * component's <code>addQuizQuestionListener<code> method. When
+	 * the quizQuestion event occurs, that object's appropriate
+	 * method is invoked.
+	 *
+	 * @see QuizQuestionEvent
+	 */
 	public interface QuizQuestionListener
 	{
+		
+		/**
+		 * On new question.
+		 *
+		 * @param question the question
+		 * @param answer the answer
+		 * @param incAnswers the incorrect answers
+		 * @param correct the number of items correct
+		 * @param incorrect the number of items incorrect
+		 */
 		public void onNewQuestion(String question, String answer, ArrayList<String> incAnswers, int correct, int incorrect);
+		
+		/**
+		 * On quiz finished.
+		 *
+		 * @param correct the number of items correct correct
+		 * @param incorrect the number of items incorrect
+		 */
 		public void onQuizFinished(int correct, int incorrect);
 	}
 	
 	
 	
+	/**
+	 * Creates the new quiz.
+	 *
+	 * @param numOfQuestions the num of questions
+	 * @param questions the questions
+	 */
 	public void createNewQuiz(int numOfQuestions, ArrayList<QuizQuestion> questions)
 	{
 		this.numOfQuestions = numOfQuestions;
 		this.questions = questions;
 	}
 	
+	/**
+	 * Sets the quiz question listener.
+	 *
+	 * @param listener the new quiz question listener
+	 */
 	public void setQuizQuestionListener(QuizQuestionListener listener)
 	{
 		this.listener = listener;
 	}
 	
+	/**
+	 * Start quiz.
+	 */
 	public void startQuiz()
 	{
 		//reset all numbers
@@ -57,6 +102,11 @@ public class QuizManager
 				, currQuestion.getIncorrectAnswers(), correctAnswers, incorrectAnswers);
 	}
 	
+	/**
+	 * Check a submited answer to the current question.
+	 *
+	 * @param answer the answer
+	 */
 	public void answerQuestion(String answer)
 	{
 		if (isQuizFinished)
@@ -78,6 +128,9 @@ public class QuizManager
 		nextQuestion();
 	}
 	
+	/**
+	 * Move to the next question.
+	 */
 	private void nextQuestion()
 	{
 		if (++currentQuestion >= numOfQuestions)

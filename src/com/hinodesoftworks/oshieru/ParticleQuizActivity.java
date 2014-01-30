@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -27,6 +27,9 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * The Class ParticleQuizActivity.
+ */
 public class ParticleQuizActivity extends Activity implements OnClickListener, QuizQuestionListener
 {
 	QuizManager quizManager;
@@ -42,13 +45,14 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 	Button answer4;
 	
 	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_particle_quiz);
-		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Particle Quiz");
 		
 		databaseHelper = new DatabaseHelper(this);
@@ -96,6 +100,9 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 	}
 
 
+	/* (non-Javadoc)
+	 * @see android.view.View.OnClickListener#onClick(android.view.View)
+	 */
 	@Override
 	public void onClick(View v)
 	{
@@ -105,6 +112,9 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.hinodesoftworks.utils.QuizManager.QuizQuestionListener#onNewQuestion(java.lang.String, java.lang.String, java.util.ArrayList, int, int)
+	 */
 	@Override
 	public void onNewQuestion(String question, String answer,
 			ArrayList<String> incAnswers, int correct, int incorrect)
@@ -146,6 +156,9 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 	}
 
 
+	/* (non-Javadoc)
+	 * @see com.hinodesoftworks.utils.QuizManager.QuizQuestionListener#onQuizFinished(int, int)
+	 */
 	@Override
 	public void onQuizFinished(int correct, int incorrect)
 	{

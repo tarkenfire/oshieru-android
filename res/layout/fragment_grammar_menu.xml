@@ -13,6 +13,7 @@
         android:layout_weight="1"
 		android:background="@drawable/conj_button_selector"
         android:onClick="onClick"
+        android:contentDescription="@string/access_conjugation"
         />
     
     <ImageButton 
@@ -23,6 +24,7 @@
         android:background="@drawable/particle_button_selector"
         android:layout_marginTop="1dp"
         android:onClick="onClick"
+        android:contentDescription="@string/access_particles"
         />
     
 </LinearLayout>

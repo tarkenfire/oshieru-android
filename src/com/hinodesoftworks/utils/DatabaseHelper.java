@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 15, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.utils
  * @author Michael Mancuso
@@ -15,12 +15,12 @@ import java.io.OutputStream;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
+/**
+ * The Class DatabaseHelper.
+ */
 public class DatabaseHelper extends SQLiteOpenHelper
 {
 	public static final String DATABASE_NAME = "oishDB";
@@ -34,6 +34,11 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 	private String internalDir;
 
+	/**
+	 * Instantiates a new database helper.
+	 *
+	 * @param context the context
+	 */
 	public DatabaseHelper (Context context)
 	{
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -41,6 +46,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		createDatabase();		
 	}
 
+	/**
+	 * Creates the database.
+	 */
 	private void createDatabase()
 	{
 		if (databaseExists())
@@ -71,12 +79,16 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			}
 			catch (IOException e)
 			{
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
 	}
 	
+	/**
+	 * Checks if the database is already copied to the device's internal storage
+	 *
+	 * @return true, if the database exists on the device
+	 */
 	private boolean databaseExists()
 	{
 		String path = internalDir + "/" + DATABASE_NAME;
@@ -85,12 +97,20 @@ public class DatabaseHelper extends SQLiteOpenHelper
 		return testFile.exists();
 	}
 	
+	/**
+	 * Open database.
+	 */
 	public void openDatabase() 
 	{
 		String path = DATABASE_PATH + DATABASE_NAME;
 		database = SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READONLY);
 	}
 	
+	/**
+	 * Gets the database.
+	 *
+	 * @return the database
+	 */
 	public SQLiteDatabase getDatabase()
 	{
 		if (database != null)
@@ -99,6 +119,9 @@ public class DatabaseHelper extends SQLiteOpenHelper
 			throw new NullPointerException();
 	}
 	
+	/**
+	 * Close database.
+	 */
 	public synchronized void closeDatabase()
 	{
 		if (database.isOpen())
@@ -108,9 +131,15 @@ public class DatabaseHelper extends SQLiteOpenHelper
 	
 
 	//database is static, creation and upgrade is unneeded.
+	/* (non-Javadoc)
+	 * @see android.database.sqlite.SQLiteOpenHelper#onCreate(android.database.sqlite.SQLiteDatabase)
+	 */
 	@Override
 	public void onCreate(SQLiteDatabase db){}
 
+	/* (non-Javadoc)
+	 * @see android.database.sqlite.SQLiteOpenHelper#onUpgrade(android.database.sqlite.SQLiteDatabase, int, int)
+	 */
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){}
 	

@@ -1,5 +1,5 @@
 /* 
- * Date: Jan 11, 2014
+ * Date: Jan 30, 2014
  * Project: Oshieru
  * Package: com.hinodesoftworks.oshieru
  * @author Michael Mancuso
@@ -12,18 +12,28 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The Class GrammarMenuActivity.
+ */
 public class GrammarMenuActivity extends Activity
 {
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(android.os.Bundle)
+	 */
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_grammar_menu);	
-		
-		//TODO: Get Title from resource rather than hard code
 		getActionBar().setTitle("Oshieru - Grammar");
 	}
 	
+	/**
+	 *  On click callback for button in this activity's fragment.
+	 *
+	 * @param v the button clicked
+	 */
 	public void onClick(View v)
 	{
 		switch (v.getId())
