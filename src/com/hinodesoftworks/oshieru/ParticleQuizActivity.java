@@ -54,6 +54,30 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_particle_quiz);
 		getActionBar().setTitle("Oshieru - Particle Quiz");
+
+		//get UI handles
+		scoreView = (TextView)findViewById(R.id.part_quiz_score);
+		questionView = (TextView)findViewById(R.id.part_quiz_question);
+		
+		answer1 = (Button)findViewById(R.id.part_quiz_button1);
+		answer2 = (Button)findViewById(R.id.part_quiz_button2);
+		answer3 = (Button)findViewById(R.id.part_quiz_button3);
+		answer4 = (Button)findViewById(R.id.part_quiz_button4);
+		
+		answer1.setOnClickListener(this);
+		answer2.setOnClickListener(this);
+		answer3.setOnClickListener(this);
+		answer4.setOnClickListener(this);	
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
 		
 		databaseHelper = new DatabaseHelper(this);
 		databaseHelper.openDatabase();
@@ -79,26 +103,19 @@ public class ParticleQuizActivity extends Activity implements OnClickListener, Q
 		quizManager = new QuizManager();
 		quizManager.createNewQuiz(quizQuestions.size(), quizQuestions);
 		quizManager.setQuizQuestionListener(this);
-		
-		
-		//get UI handles
-		scoreView = (TextView)findViewById(R.id.part_quiz_score);
-		questionView = (TextView)findViewById(R.id.part_quiz_question);
-		
-		answer1 = (Button)findViewById(R.id.part_quiz_button1);
-		answer2 = (Button)findViewById(R.id.part_quiz_button2);
-		answer3 = (Button)findViewById(R.id.part_quiz_button3);
-		answer4 = (Button)findViewById(R.id.part_quiz_button4);
-		
-		answer1.setOnClickListener(this);
-		answer2.setOnClickListener(this);
-		answer3.setOnClickListener(this);
-		answer4.setOnClickListener(this);
-		
 		quizManager.startQuiz();
-		
+
 	}
 
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(onStop)
+	 */
+	@Override
+	protected void onStop()
+	{
+		super.onStop();
+		databaseHelper.closeDatabase();
+	}
 
 	/* (non-Javadoc)
 	 * @see android.view.View.OnClickListener#onClick(android.view.View)

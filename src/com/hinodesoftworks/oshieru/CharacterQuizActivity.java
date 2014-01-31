@@ -55,18 +55,6 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		setContentView(R.layout.activity_character_quiz);
 		getActionBar().setTitle("Oshieru - Character Quiz");
 		
-		
-		databaseHelper = new DatabaseHelper(this);
-		databaseHelper.openDatabase();
-		SQLiteDatabase database = databaseHelper.getDatabase();
-		databaseManager = new DatabaseManager(database);
-	
-		ArrayList<QuizQuestion> quizQuestions = this.getQuizQuestions();
-			
-		quizManager = new QuizManager();
-		quizManager.createNewQuiz(quizQuestions.size(), quizQuestions);
-		quizManager.setQuizQuestionListener(this);
-		
 		//get UI handles
 		scoreView = (TextView)findViewById(R.id.char_quiz_score);
 		questionView = (TextView)findViewById(R.id.char_quiz_question);
@@ -81,11 +69,45 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		answer3.setOnClickListener(this);
 		answer4.setOnClickListener(this);
 		
+
+	}
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
+		
+		databaseHelper = new DatabaseHelper(this);
+		databaseHelper.openDatabase();
+		SQLiteDatabase database = databaseHelper.getDatabase();
+		databaseManager = new DatabaseManager(database);
+	
+		ArrayList<QuizQuestion> quizQuestions = this.getQuizQuestions();
+			
+		quizManager = new QuizManager();
+		quizManager.createNewQuiz(quizQuestions.size(), quizQuestions);
+		quizManager.setQuizQuestionListener(this);	
 		quizManager.startQuiz();
+		
 	}
 
-	
-	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(onStop)
+	 */
+	@Override
+	protected void onStop()
+	{
+		super.onStop();
+		databaseHelper.closeDatabase();
+	}
+
+
+
+
+
 	/* (non-Javadoc)
 	 * @see com.hinodesoftworks.utils.QuizManager.QuizQuestionListener#onNewQuestion(java.lang.String, java.lang.String, java.util.ArrayList, int, int)
 	 */

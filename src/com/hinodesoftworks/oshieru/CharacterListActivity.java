@@ -7,6 +7,7 @@
  */
 package com.hinodesoftworks.oshieru;
 
+
 import com.hinodesoftworks.utils.DatabaseManager;
 import com.hinodesoftworks.utils.DatabaseHelper;
 
@@ -79,6 +80,16 @@ public class CharacterListActivity extends Activity implements TabListener
         tabToAdd.setText("Kanji");
         tabToAdd.setTabListener(this);
         actionBar.addTab(tabToAdd);
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onStart()
+	 */
+	@Override
+	protected void onStart()
+	{
+		super.onStart();
 		
         //get database manager instance.
         databaseHelper = new DatabaseHelper(this);
@@ -86,6 +97,17 @@ public class CharacterListActivity extends Activity implements TabListener
         SQLiteDatabase database = databaseHelper.getDatabase();
         databaseManager = new DatabaseManager(database);
 	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onCreate(onStop)
+	 */
+	@Override
+	protected void onStop()
+	{
+		super.onStop();
+		databaseHelper.closeDatabase();
+	}
+
 	
 
 	/* (non-Javadoc)
