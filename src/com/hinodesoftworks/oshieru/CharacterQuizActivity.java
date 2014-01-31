@@ -188,16 +188,14 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 		ArrayList<QuizQuestion> questionsToReturn = new ArrayList<QuizQuestion>();
 		Cursor questionCursor = null;
 		Cursor wrongCursor = null;
-		ArrayList<String> wrongs = new ArrayList<String>();
+
 		
 		//add items in a round robin fashion till all of the questions are answered.
 		while (count < maxCount)
-		{
-			//clear reused variables
-			wrongs.clear();
-			
+		{	
 			if (kataFlag)
 			{
+				ArrayList<String> wrongs = new ArrayList<String>();
 				questionCursor = databaseManager.queryRandomTableData(1, "katakana");
 				questionCursor.moveToFirst();
 				
@@ -222,6 +220,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 			
 			if (hiraFlag)
 			{
+				ArrayList<String> wrongs = new ArrayList<String>();
 				questionCursor = databaseManager.queryRandomTableData(1, "hiragana");
 				questionCursor.moveToFirst();
 				
@@ -248,6 +247,7 @@ public class CharacterQuizActivity extends Activity implements QuizQuestionListe
 			
 			if (kanjiFlag)
 			{
+				ArrayList<String> wrongs = new ArrayList<String>();
 				//same as others, but because of longer answers, I substring them before
 				//adding.
 				questionCursor = databaseManager.queryRandomTableData(1, "kanji_g1");
